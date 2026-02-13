@@ -1,18 +1,20 @@
 // Create floating hearts
 function createFloatingHearts() {
     const heartsBg = document.getElementById('heartsBg');
-
+    const hearts = ['❤️', '💕', '💖', '💗', '💘', '💝'];
+    
     setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'heart-float';
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
         heart.style.left = Math.random() * 100 + '%';
         heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+        heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
         heartsBg.appendChild(heart);
-
+        
         setTimeout(() => heart.remove(), 8000);
     }, 600);
 }
-
 
 // Open button functionality
 const openBtn = document.getElementById('openBtn');
