@@ -1,84 +1,86 @@
-// Create floating hearts
-function createFloatingHearts() {
-    const heartsBg = document.getElementById('heartsBg');
-    const hearts = ['❤️', '💕', '💖', '💗', '💘', '💝'];
-    
-    setInterval(() => {
-        const heart = document.createElement('div');
-        heart.className = 'heart-float';
-        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-        heart.style.left = Math.random() * 100 + '%';
-        heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
-        heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
-        heartsBg.appendChild(heart);
-        
-        setTimeout(() => heart.remove(), 8000);
-    }, 600);
-}
+const openBtn = document.getElementById("openBtn");
+const overlay = document.getElementById("overlay");
+const mainContent = document.getElementById("main-content");
+const bgMusic = document.getElementById("bgMusic");
 
-// Open button functionality
-const openBtn = document.getElementById('openBtn');
-const overlay = document.getElementById('overlay');
-const mainContent = document.getElementById('main-content');
+/* Open Surprise */
+openBtn.addEventListener("click", () => {
 
-openBtn.addEventListener('click', () => {
-    overlay.classList.add('hidden');
+    overlay.style.opacity = "0";
+
     setTimeout(() => {
-        mainContent.classList.add('visible');
-        createFloatingHearts();
-    }, 300);
+        overlay.style.display = "none";
+        mainContent.classList.add("visible");
+        bgMusic.play();
+        startHearts();
+        typeWriter();
+        fireworks();
+    }, 800);
+
 });
 
-// Gallery functionality
-const slides = document.querySelectorAll('.gallery-slide');
-const galleryNav = document.getElementById('galleryNav');
-let currentSlide = 0;
+/* Floating Hearts */
+function startHearts(){
+    setInterval(()=>{
+        const heart = document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"%";
+        heart.style.fontSize=(20+Math.random()*20)+"px";
+        document.body.appendChild(heart);
 
-// Create navigation dots
-slides.forEach((_, index) => {
-    const dot = document.createElement('span');
-    dot.className = 'nav-dot' + (index === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goToSlide(index));
-    galleryNav.appendChild(dot);
-});
-
-const navDots = document.querySelectorAll('.nav-dot');
-
-function goToSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    navDots[currentSlide].classList.remove('active');
-    
-    currentSlide = n;
-    
-    slides[currentSlide].classList.add('active');
-    navDots[currentSlide].classList.add('active');
+        setTimeout(()=>heart.remove(),6000);
+    },400);
 }
 
-function nextSlide() {
-    goToSlide((currentSlide + 1) % slides.length);
+/* Gallery */
+const slides = document.querySelectorAll(".gallery-slide");
+const nav = document.getElementById("galleryNav");
+let index=0;
+
+slides.forEach((_,i)=>{
+    const dot=document.createElement("span");
+    dot.className="nav-dot"+(i===0?" active":"");
+    dot.onclick=()=>showSlide(i);
+    nav.appendChild(dot);
+});
+
+const dots=document.querySelectorAll(".nav-dot");
+
+function showSlide(i){
+    slides[index].classList.remove("active");
+    dots[index].classList.remove("active");
+    index=i;
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
 }
 
-// Auto-advance slides
-setInterval(nextSlide, 4000);
+setInterval(()=>showSlide((index+1)%slides.length),4000);
 
-// Add swipe support for mobile
-let touchStartX = 0;
-let touchEndX = 0;
+/* Typewriter Effect */
+const text="From the moment you entered my life, everything became magical. You are my today, my tomorrow, and my forever.";
+let i=0;
 
-document.querySelector('.gallery-container').addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-document.querySelector('.gallery-container').addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        nextSlide();
+function typeWriter(){
+    if(i<text.length){
+        document.getElementById("typedText").innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(typeWriter,40);
     }
-    if (touchEndX > touchStartX + 50) {
-        goToSlide((currentSlide - 1 + slides.length) % slides.length);
+}
+
+/* Fireworks */
+function fireworks(){
+    for(let i=0;i<30;i++){
+        const spark=document.createElement("div");
+        spark.innerHTML="✨";
+        spark.style.position="fixed";
+        spark.style.left=Math.random()*100+"%";
+        spark.style.top=Math.random()*100+"%";
+        spark.style.fontSize="20px";
+        spark.style.animation="fadeOut 2s forwards";
+        document.body.appendChild(spark);
+
+        setTimeout(()=>spark.remove(),2000);
     }
 }

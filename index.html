@@ -2,123 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Forever Love ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Floating Hearts Background -->
-    <div class="hearts-bg" id="heartsBg"></div>
 
-    <!-- Opening Card Overlay -->
-    <div class="overlay" id="overlay">
-        <div class="opening-card">
-            <h1>To My Forever Love ❤️</h1>
-            <p>In a world full of temporary things,<br>you are my favorite forever...</p>
-            <button class="open-btn" id="openBtn">Open Your Heart 💕</button>
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Floating Hearts -->
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- Opening Overlay -->
+<div class="overlay" id="overlay">
+    <div class="opening-card">
+        <h1>To My Forever Love ❤️</h1>
+        <p>
+            In a world full of temporary things,<br>
+            you are my favorite forever...
+        </p>
+        <button class="open-btn" id="openBtn">Open Your Heart 💕</button>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div id="main-content">
+
+    <div class="header-section">
+        <h2>Happy Valentine's Day ❤️</h2>
+        <p class="subtitle">To the one who makes every moment magical</p>
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery-container">
+        <div class="gallery-slide active">
+            <div class="image-frame">
+                <img src="assets/img1.jpeg">
+                <div class="image-caption">Every moment with you is a treasure ✨</div>
+            </div>
+        </div>
+        <div class="gallery-slide">
+            <div class="image-frame">
+                <img src="assets/img2.jpeg">
+                <div class="image-caption">You are my sunshine ☀️</div>
+            </div>
+        </div>
+        <div class="gallery-slide">
+            <div class="image-frame">
+                <img src="assets/img3.jpeg">
+                <div class="image-caption">Together forever 💑</div>
+            </div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div id="main-content">
-        <!-- Header -->
-        <div class="header-section">
-            <h2>Happy Valentine's Day ❤️</h2>
-            <p class="subtitle">To the one who makes every moment magical</p>
-        </div>
+    <div class="gallery-nav" id="galleryNav"></div>
 
-        <!-- Photo Gallery -->
-        <div class="gallery-container">
-            <div class="gallery-slide active">
-                <div class="image-frame">
-                    <img src="assets/img1.jpeg" alt="Love moment 1">
-                    <div class="image-caption">Every moment with you is a treasure ✨</div>
-                </div>
-            </div>
-            <div class="gallery-slide">
-                <div class="image-frame">
-                    <img src="assets/img2.jpeg" alt="Love moment 2">
-                    <div class="image-caption">You are my sunshine on cloudy days ☀️</div>
-                </div>
-            </div>
-            <div class="gallery-slide">
-                <div class="image-frame">
-                    <img src="assets/img3.jpeg" alt="Love moment 3">
-                    <div class="image-caption">Together we create beautiful memories 💑</div>
-                </div>
-            </div>
-            <div class="gallery-slide">
-                <div class="image-frame">
-                    <img src="assets/img4.jpeg" alt="Love moment 4">
-                    <div class="image-caption">Your smile lights up my entire world 🌟</div>
-                </div>
-            </div>
-            <div class="gallery-slide">
-                <div class="image-frame">
-                    <img src="assets/img5.jpeg" alt="Love moment 5">
-                    <div class="image-caption">Forever grateful to call you mine 💖</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gallery Navigation Dots -->
-        <div class="gallery-nav" id="galleryNav"></div>
-
-        <!-- Love Letter -->
-        <div class="love-letter">
-            <h3>My Dearest Love,</h3>
-            <p>From the moment you walked into my life, everything changed. You turned my ordinary days into extraordinary adventures, my silence into laughter, and my dreams into beautiful reality.</p>
-            <p>Your smile is the first thing I want to see every morning, and your voice is the last melody I want to hear before I sleep. With you, I've found a love that's pure, genuine, and everlasting.</p>
-            <p>You are not just my Valentine today – you are my Valentine every single day. You are my best friend, my partner in crime, my safe place, and my greatest adventure all rolled into one perfect person.</p>
-            <p>Thank you for being you. Thank you for choosing me. Thank you for making life so incredibly beautiful.</p>
-            <p class="signature">Forever yours, with all my love ❤️</p>
-        </div>
-
-        <!-- Reasons I Love You -->
-        <div class="reasons-section">
-            <h3>Why I Love You ❤️</h3>
-            <div class="reasons-grid">
-                <div class="reason-card">
-                    <span class="emoji">😊</span>
-                    <h4>Your Smile</h4>
-                    <p>Your smile brightens even my darkest days and fills my heart with endless joy.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="emoji">💪</span>
-                    <h4>Your Strength</h4>
-                    <p>You inspire me every day with your courage and determination to overcome any challenge.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="emoji">❤️</span>
-                    <h4>Your Heart</h4>
-                    <p>Your kindness and compassion make the world a better place, starting with mine.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="emoji">✨</span>
-                    <h4>Your Uniqueness</h4>
-                    <p>Everything about you is wonderfully unique, and I love every little quirk.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="emoji">🤗</span>
-                    <h4>Your Warmth</h4>
-                    <p>Being in your arms feels like home – safe, warm, and perfectly where I belong.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="emoji">🌟</span>
-                    <h4>Your Spirit</h4>
-                    <p>Your adventurous spirit and zest for life makes every moment an exciting journey.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <div class="heart-icon">💕</div>
-            <p>I love you more than words can express</p>
-            <p>Today, Tomorrow, and Always</p>
-        </div>
+    <!-- Love Letter -->
+    <div class="love-letter">
+        <h3>My Dearest Love,</h3>
+        <p id="typedText"></p>
+        <p class="signature">Forever yours ❤️</p>
     </div>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
