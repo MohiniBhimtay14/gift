@@ -7,7 +7,7 @@ btn.addEventListener("click", () => {
     surprise.classList.remove("hidden");
 });
 
-/* Slideshow */
+/* Sliding Slideshow */
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
